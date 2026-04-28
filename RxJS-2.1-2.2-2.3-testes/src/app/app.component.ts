@@ -11,6 +11,7 @@ import { forkJoin, Subscription, of, Observable } from "rxjs";
 import { delay } from "rxjs/operators";
 import { BuscaComponent } from "./2.3/busca.component";
 import { CarrinhoComponent } from "./3.1/carrinho.component";
+import { TodoComponent } from "./3.2/todo.component";
 
 // ==============================
 // 2.1 — Types e Service
@@ -114,7 +115,14 @@ export class ForkJoinComponent implements OnInit, OnDestroy {
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [CommonModule, OnPushComponent, ForkJoinComponent, BuscaComponent, CarrinhoComponent],
+  imports: [
+    CommonModule,
+    OnPushComponent,
+    ForkJoinComponent,
+    BuscaComponent,
+    CarrinhoComponent,
+    TodoComponent,
+  ],
   template: `
     <div style="max-width: 600px; margin: 40px auto;">
       <h1 style="font-family: sans-serif;">Desafio Frontend — Attus</h1>
@@ -124,8 +132,14 @@ export class ForkJoinComponent implements OnInit, OnDestroy {
       <app-forkjoin />
       <hr />
       <app-busca />
-      <hr/>>
+      <hr />
+      <p style="color: gray; font-size: 13px;">
+        Obs: os testes 3.1 e 3.2 estão mais abaixo, para facilitar a leitura.
+      </p>
+      <hr />
       <app-carrinho />
+      <hr />
+      <app-todo />
     </div>
   `,
 })

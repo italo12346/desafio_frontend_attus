@@ -1,53 +1,71 @@
 {
-  "hash": "8dedcdb9",
-  "configHash": "3be613ff",
+  "hash": "1dcb0364",
+  "configHash": "c5fdd0ba",
   "lockfileHash": "08ac8820",
-  "browserHash": "e2118648",
+  "browserHash": "851d4970",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "dc4f96ff",
+      "fileHash": "70ad7648",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "8619cbbe",
+      "fileHash": "283cd5e1",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "9231bc76",
+      "fileHash": "a56db5d2",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "8a06d3b1",
+      "fileHash": "2c9f4aa1",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "f6e62c14",
+      "fileHash": "0413f090",
       "needsInterop": false
     },
     "rxjs/operators": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
       "file": "rxjs_operators.js",
-      "fileHash": "1fc6c9ab",
+      "fileHash": "623e292f",
       "needsInterop": false
     },
     "@ngrx/store": {
       "src": "../../../../../node_modules/@ngrx/store/fesm2022/ngrx-store.mjs",
       "file": "@ngrx_store.js",
-      "fileHash": "9f8939f3",
+      "fileHash": "9a905a4d",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "42a54011",
+      "needsInterop": false
+    },
+    "@ngrx/effects": {
+      "src": "../../../../../node_modules/@ngrx/effects/fesm2022/ngrx-effects.mjs",
+      "file": "@ngrx_effects.js",
+      "fileHash": "ce8d6016",
       "needsInterop": false
     }
   },
   "chunks": {
+    "chunk-2DJJH5CC": {
+      "file": "chunk-2DJJH5CC.js"
+    },
+    "chunk-KCLLROBM": {
+      "file": "chunk-KCLLROBM.js"
+    },
     "chunk-APQJ6POP": {
       "file": "chunk-APQJ6POP.js"
     },
