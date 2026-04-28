@@ -1,0 +1,67 @@
+<div class="page-wrapper">
+  <div class="page-container">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="menu-btn"><span class="menu-icon">≡</span></button>
+        <span class="page-title">USUÁRIOS</span>
+      </div>
+      <div class="topbar-right">
+        <div class="search-box">
+          <input class="search-input" [formControl]="searchControl" type="text" placeholder="Pesquisar..." />
+          <span class="search-icon">🔍</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="state-container" *ngIf="loading()">
+        <div class="spinner"></div>
+        <span class="state-text">Carregando usuários...</span>
+      </div>
+
+      <div class="state-container state-container--error" *ngIf="error() && !loading()">
+        <span class="error-icon">⚠</span>
+        <span class="state-text error-text">{{ error() }}</span>
+        <button class="retry-btn" (click)="retryLoad()">Tentar novamente</button>
+      </div>
+
+      <div class="users-section" *ngIf="!loading() && !error()">
+        <div class="section-label">Usuários cadastrados</div>
+        <div class="empty-state" *ngIf="users().length === 0">
+          <span>Nenhum usuário encontrado.</span>
+        </div>
+        <div class="user-row" *ngFor="let user of users(); trackBy: trackById">
+          <div class="user-avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" fill="#9e9e9e" />
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" fill="#9e9e9e" />
+            </svg>
+          </div>
+          <div class="user-info"><span class="user-name">{{ user.name }}</span></div>
+          <div class="user-email">{{ user.email }}</div>
+          <button class="edit-btn" (click)="openEditModal(user)" title="Editar usuário">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9e9e9e" stroke-width="2">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <button class="fab" (click)="openAddModal()" title="Adicionar usuário">
+      <span class="fab-icon">+</span>
+    </button>
+
+    <!-- Modal inline dentro do container -->
+    <div class="modal-overlay" *ngIf="modalOpen()" (click)="onOverlayClick($event)">
+      <div class="modal-box" (click)="$event.stopPropagation()">
+        <app-user-modal
+          [user]="selectedUser()"
+          (saved)="onModalSaved()"
+          (cancelled)="closeModal()"
+        />
+      </div>
+    </div>
+  </div>
+</div>

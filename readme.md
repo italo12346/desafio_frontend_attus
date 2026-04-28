@@ -29,3 +29,35 @@ Se der erro de caminho, use `./`:
 ```bash
 npx tsx ./"1.1_refatoração.ts"
 ```
+
+## 2. Rodar o projeto Angular (RxJs-2.1--2.2-2.3)
+
+```bash
+cd ./ RxJS-2.1-2.2-2.3-testes/
+npm install
+npm start
+```
+
+> Se `ng` não for reconhecido, use `npx` em vez de `npm start`:
+>
+> ```bash
+> npx ng serve
+> ```
+
+Acesse em: [http://localhost:4200](http://localhost:4200)
+
+## 3. Rodar o projeto Angular (Desafio Prático 4.x)
+
+```bash
+cd desafio-pratico
+npm install
+npm start
+```
+
+> Se `ng` não for reconhecido, use `npx` em vez de `npm start`:
+>
+> ```bash
+> npx ng serve
+> ```
+
+Acesse em: [http://localhost:4200](http://localhost:4200)

@@ -1,0 +1,99 @@
+<div class="modal-container">
+  <div class="modal-header">
+    <h2>{{ isEdit ? 'Editar usuário' : 'Adicionar novo usuário' }}</h2>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="form" novalidate>
+
+      <div class="field-group">
+        <label class="field-label">Usuário de e-mail *</label>
+        <input
+          class="field-input"
+          formControlName="email"
+          type="email"
+          [class.field-input--error]="form.get('email')?.invalid && form.get('email')?.touched"
+        />
+        <div class="field-error" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+          <span *ngIf="form.get('email')?.errors?.['required']">E-mail é obrigatório</span>
+          <span *ngIf="form.get('email')?.errors?.['email']">E-mail inválido</span>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Nome completo *</label>
+        <input
+          class="field-input"
+          formControlName="name"
+          type="text"
+          [class.field-input--error]="form.get('name')?.invalid && form.get('name')?.touched"
+        />
+        <div class="field-error" *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+          <span *ngIf="form.get('name')?.errors?.['required']">Nome é obrigatório</span>
+          <span *ngIf="form.get('name')?.errors?.['minlength']">Mínimo 3 caracteres</span>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group field-group--flex">
+          <label class="field-label">CPF *</label>
+          <input
+            class="field-input"
+            formControlName="cpf"
+            type="text"
+            maxlength="14"
+            placeholder="000.000.000-00"
+            (input)="formatCpf($event)"
+            [class.field-input--error]="form.get('cpf')?.invalid && form.get('cpf')?.touched"
+          />
+          <div class="field-error" *ngIf="form.get('cpf')?.invalid && form.get('cpf')?.touched">
+            <span *ngIf="form.get('cpf')?.errors?.['required']">CPF é obrigatório</span>
+            <span *ngIf="form.get('cpf')?.errors?.['cpfInvalid']">CPF inválido</span>
+          </div>
+        </div>
+
+        <div class="field-group field-group--flex">
+          <label class="field-label">Número de telefone *</label>
+          <div class="phone-row">
+            <input
+              class="field-input phone-input"
+              formControlName="phone"
+              type="text"
+              maxlength="15"
+              placeholder="(00) 00000-0000"
+              (input)="formatPhone($event)"
+              [class.field-input--error]="form.get('phone')?.invalid && form.get('phone')?.touched"
+            />
+            <select class="field-select" formControlName="phoneType">
+              <option value="CELULAR">CELULAR</option>
+              <option value="RESIDENCIAL">RESIDENCIAL</option>
+              <option value="COMERCIAL">COMERCIAL</option>
+            </select>
+          </div>
+          <div class="field-error" *ngIf="form.get('phone')?.invalid && form.get('phone')?.touched">
+            <span *ngIf="form.get('phone')?.errors?.['required']">Telefone é obrigatório</span>
+            <span *ngIf="form.get('phone')?.errors?.['phoneInvalid']">Telefone inválido</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sms-notice">
+        O usuário receberá uma senha provisória para acesso ao sistema por SMS.
+      </div>
+
+      <div class="save-error" *ngIf="saveError">{{ saveError }}</div>
+
+      <div class="modal-actions">
+        <button
+          class="btn-save"
+          type="button"
+          [disabled]="form.invalid || saving"
+          (click)="onSave()"
+        >
+          {{ saving ? '...' : 'SALVAR' }}
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
