@@ -30,15 +30,15 @@ Se der erro de caminho, use `./`:
 npx tsx ./"1.1_refatoração.ts"
 ```
 
-## 2. Rodar o projeto Angular (RxJs-2.1--2.2-2.3)
+## 2. Rodar o projeto Angular (RxJS-2.1-2.2-2.3)
 
 ```bash
-cd ./ RxJS-2.1-2.2-2.3-testes/
+cd RxJS-2.1-2.2-2.3-testes/
 npm install
 npm start
 ```
 
-> Se `ng` não for reconhecido, use `npx` em vez de `npm start`:
+> Se `ng` não for reconhecido:
 >
 > ```bash
 > npx ng serve
@@ -54,7 +54,7 @@ npm install
 npm start
 ```
 
-> Se `ng` não for reconhecido, use `npx` em vez de `npm start`:
+> Se `ng` não for reconhecido:
 >
 > ```bash
 > npx ng serve
