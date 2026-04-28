@@ -12,6 +12,7 @@ Use **tsx**.
 
 ```bash
 npm install tsx -D
+npm install @angular/core rxjs
 ```
 
 ### 2) Rodar
