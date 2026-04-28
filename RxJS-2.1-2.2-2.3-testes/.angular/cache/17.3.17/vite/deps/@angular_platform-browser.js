@@ -72,8 +72,8 @@ import {
   ɵɵdefineNgModule,
   ɵɵinject
 } from "./chunk-IGJZNA3K.js";
-import "./chunk-CONQKHOI.js";
 import "./chunk-V4GYEGQC.js";
+import "./chunk-CONQKHOI.js";
 import {
   Observable,
   __async,

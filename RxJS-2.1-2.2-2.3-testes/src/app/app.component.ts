@@ -5,11 +5,12 @@ import {
   Injectable,
   OnInit,
   OnDestroy,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { forkJoin, Subscription, of, Observable } from 'rxjs';
-import { delay } from 'rxjs/operators';
-import { BuscaComponent } from './2.3/busca.component';
+} from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { forkJoin, Subscription, of, Observable } from "rxjs";
+import { delay } from "rxjs/operators";
+import { BuscaComponent } from "./2.3/busca.component";
+import { CarrinhoComponent } from "./3.1/carrinho.component";
 
 // ==============================
 // 2.1 — Types e Service
@@ -22,7 +23,7 @@ type Pessoa = {
 @Injectable()
 class PessoaService {
   buscarPorId(id: number): Observable<Pessoa> {
-    return of({ id, nome: 'João' }).pipe(delay(500));
+    return of({ id, nome: "João" }).pipe(delay(500));
   }
 
   buscarQuantidadeFamiliares(id: number): Observable<number> {
@@ -34,7 +35,7 @@ class PessoaService {
 // 2.1 — Change Detection OnPush
 // ==============================
 @Component({
-  selector: 'app-onpush',
+  selector: "app-onpush",
   standalone: true,
   providers: [PessoaService],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -46,7 +47,7 @@ class PessoaService {
   `,
 })
 export class OnPushComponent implements OnInit, OnDestroy {
-  texto: string = '';
+  texto: string = "";
   contador = 0;
   subscriptionBuscarPessoa?: Subscription;
 
@@ -75,7 +76,7 @@ export class OnPushComponent implements OnInit, OnDestroy {
 // 2.2 — forkJoin
 // ==============================
 @Component({
-  selector: 'app-forkjoin',
+  selector: "app-forkjoin",
   standalone: true,
   providers: [PessoaService],
   template: `
@@ -86,7 +87,7 @@ export class OnPushComponent implements OnInit, OnDestroy {
   `,
 })
 export class ForkJoinComponent implements OnInit, OnDestroy {
-  texto: string = '';
+  texto: string = "";
   subscricao?: Subscription;
 
   constructor(private readonly pessoaService: PessoaService) {}
@@ -111,9 +112,9 @@ export class ForkJoinComponent implements OnInit, OnDestroy {
 // App Root
 // ==============================
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
-  imports: [CommonModule, OnPushComponent, ForkJoinComponent, BuscaComponent],
+  imports: [CommonModule, OnPushComponent, ForkJoinComponent, BuscaComponent, CarrinhoComponent],
   template: `
     <div style="max-width: 600px; margin: 40px auto;">
       <h1 style="font-family: sans-serif;">Desafio Frontend — Attus</h1>
@@ -123,6 +124,8 @@ export class ForkJoinComponent implements OnInit, OnDestroy {
       <app-forkjoin />
       <hr />
       <app-busca />
+      <hr/>>
+      <app-carrinho />
     </div>
   `,
 })
